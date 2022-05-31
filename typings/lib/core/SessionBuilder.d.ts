@@ -7,6 +7,11 @@ declare class SessionBuilder {
      */
     constructor(config: object);
     build(): Promise<SessionBuilder>;
+    /**
+     * @readonly
+     * @type {AxiosInstance}
+     */
+    readonly get axios(): AxiosInstance;
     /** @readonly */
     readonly get key(): any;
     /** @readonly */

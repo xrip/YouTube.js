@@ -15,6 +15,9 @@ declare class Innertube {
      * @param {string} [config.gl]
      * @param {string} [config.cookie]
      * @param {boolean} [config.debug]
+     * @param {object} [config.proxy]
+     * @param {object} [config.httpAgent]
+     * @param {object} [config.httpsAgent]
      *
      * @returns {Innertube}
      * @constructor
@@ -23,11 +26,17 @@ declare class Innertube {
         gl?: string;
         cookie?: string;
         debug?: boolean;
+        proxy?: object;
+        httpAgent?: object;
+        httpsAgent?: object;
     });
     config: {
         gl?: string;
         cookie?: string;
         debug?: boolean;
+        proxy?: object;
+        httpAgent?: object;
+        httpsAgent?: object;
     };
     key: any;
     version: any;
@@ -318,6 +327,11 @@ declare class Innertube {
             end: number;
         };
     }): Stream.PassThrough;
+    /**
+     * @readonly
+     * @type {AxiosInstance}
+     */
+    readonly get axios(): AxiosInstance;
     #private;
 }
 import EventEmitter = require("events");

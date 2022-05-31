@@ -5,10 +5,11 @@ const Innertube = require('..');
 const NToken = require('../lib/deciphers/NToken');
 const Signature = require('../lib/deciphers/Signature');
 const Constants = require('./constants');
+const {SocksProxyAgent} = require('socks-proxy-agent');
 
 describe('YouTube.js Tests', () => { 
   beforeAll(async () => {
-    this.session = await new Innertube();
+    this.session = await new Innertube( { httpsAgent: new SocksProxyAgent('socks5://<socks5.proxy>:<port>')});
   });
   
   describe('Search', () => {
